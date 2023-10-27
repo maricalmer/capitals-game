@@ -1,4 +1,4 @@
-### [capitals-game](https://chic-kleicha-0ebee7.netlify.app/), a website to test your knowledge of the capitals of the world
+### [capitals-game](https://chic-kleicha-0ebee7.netlify.app/), a website to test your knowledge of the world's capital cities
 
 ## Static website
 
