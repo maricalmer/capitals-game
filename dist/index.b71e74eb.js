@@ -739,10 +739,10 @@ exports.export = function(dest, destName, get) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Marker", ()=>Marker);
-var _capitals = require("../utils/capitals");
+var _randomCapital = require("../utils/randomCapital");
 class Marker {
     constructor(map){
-        this.cityData = this.pickRandomCapital();
+        this.cityData = (0, _randomCapital.pickRandomCapital)();
         this.googleMarker = new google.maps.Marker({
             map: map.googleMap,
             position: {
@@ -759,16 +759,6 @@ class Marker {
             marker.setAnimation(google.maps.Animation.BOUNCE);
         }, 1000);
     }
-    pickRandomCapital() {
-        const randomIndex = Math.floor(Math.random() * 251);
-        const capitalData = {
-            country: (0, _capitals.countriesData)[randomIndex][0],
-            name: (0, _capitals.countriesData)[randomIndex][1],
-            lat: (0, _capitals.countriesData)[randomIndex][2],
-            lng: (0, _capitals.countriesData)[randomIndex][3]
-        };
-        return capitalData;
-    }
     addContentToMarker(marker) {
         this.googleMarker.addListener("click", ()=>{
             const infoWindow = new google.maps.InfoWindow({
@@ -781,6 +771,22 @@ class Marker {
         });
     }
 }
+
+},{"../utils/randomCapital":"fHDMH","@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"fHDMH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "pickRandomCapital", ()=>pickRandomCapital);
+var _capitals = require("../utils/capitals");
+const pickRandomCapital = ()=>{
+    const randomIndex = Math.floor(Math.random() * 251);
+    const capitalData = {
+        country: (0, _capitals.countriesData)[randomIndex][0],
+        name: (0, _capitals.countriesData)[randomIndex][1],
+        lat: (0, _capitals.countriesData)[randomIndex][2],
+        lng: (0, _capitals.countriesData)[randomIndex][3]
+    };
+    return capitalData;
+};
 
 },{"../utils/capitals":"lyq42","@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"lyq42":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -2307,15 +2313,8 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "checkAnswer", ()=>checkAnswer);
 var _map = require("../src/Map");
 var _useConfetti = require("../hooks/useConfetti");
-const updateScore = ()=>{
-    let userScore = document.querySelector(".form__score-value");
-    if (userScore) {
-        let score = parseInt(userScore.innerHTML);
-        score++;
-        userScore.innerHTML = score.toString();
-    }
-};
-const reloadMap = ()=>{
+var _useScore = require("../hooks/useScore");
+const reloadWithNewMap = ()=>{
     const map = new (0, _map.Map)();
     checkAnswer(map);
 };
@@ -2326,17 +2325,17 @@ const checkAnswer = (map)=>{
         const answer = map.marker.cityData["name"].toLowerCase();
         let inputField = document.querySelector(".form__input");
         if (inputField?.value.toLowerCase() === answer) {
-            updateScore();
-            inputField.innerHTML = "";
+            (0, _useScore.updateScore)();
+            inputField.value = "";
             inputField.classList.remove("form__input--wrong-input");
             (0, _useConfetti.throwConfettis)();
-            reloadMap();
+            reloadWithNewMap();
             this.removeEventListener("click", myCallback);
         } else inputField?.classList.add("form__input--wrong-input");
     });
 };
 
-},{"../src/Map":"5vXJ1","../hooks/useConfetti":"casih","@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"casih":[function(require,module,exports) {
+},{"../src/Map":"5vXJ1","../hooks/useConfetti":"casih","@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C","../hooks/useScore":"hcbfl"}],"casih":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "throwConfettis", ()=>throwConfettis);
@@ -2714,6 +2713,19 @@ var JSConfetti = /*#__PURE__*/ function() {
     return JSConfetti;
 }();
 exports.default = JSConfetti;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"hcbfl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "updateScore", ()=>updateScore);
+const updateScore = ()=>{
+    let userScore = document.querySelector(".form__score-value");
+    if (userScore) {
+        let score = parseInt(userScore.innerHTML);
+        score++;
+        userScore.innerHTML = score.toString();
+    }
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}]},["fXfvm","h7u1C"], "h7u1C", "parcelRequire94c2")
 

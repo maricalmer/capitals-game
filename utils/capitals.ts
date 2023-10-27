@@ -1,5 +1,5 @@
-type CapitalData = [string, string, number, number][];
-export const countriesData: CapitalData = [
+type CapitalsDatabase = [string, string, number, number][];
+export const countriesData: CapitalsDatabase = [
   [ 'United Arab Emirates', 'Abu Dhabi', 24.299174, 54.697277 ],
   [ 'Nigeria', 'Abuja', 9.076479, 7.398574 ],
   [ 'Ghana', 'Accra', 5.603717, -0.186964 ],
