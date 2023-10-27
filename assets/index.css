@@ -17,12 +17,14 @@ body {
   font-size: 6rem;
   text-align: center;
   padding-top: 10px;
+  color: black;
 }
 form {
   margin: 10px 0 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: black;
 }
 .form__input {
   background-color: transparent;
