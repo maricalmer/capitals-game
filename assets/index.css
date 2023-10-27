@@ -10,6 +10,7 @@ body {
   background-position: center;
   font-family: 'Tangerine', cursive;
   margin: 0;
+  color: black;
 }
 .title {
   font-weight: bold;
@@ -33,6 +34,22 @@ form {
   font-size: 1.1rem;
 }
 .form__input::placeholder {
+  font-size: 1.1rem;
+  color: black;
+}
+::-webkit-input-placeholder {
+  font-size: 1.1rem;
+  color: black;
+}
+::-moz-placeholder {
+  font-size: 1.1rem;
+  color: black;
+}
+::-ms-placeholder {
+  font-size: 1.1rem;
+  color: black;
+}
+::placeholder {
   font-size: 1.1rem;
   color: black;
 }
