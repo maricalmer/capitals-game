@@ -1,0 +1,94 @@
+html {
+  overflow: hidden;
+  scrollbar-width: none;
+}
+body {
+  background-color: #A9998A;
+  background-image: url(./img/old_paper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: 'Tangerine', cursive;
+  margin: 0;
+}
+.title {
+  font-weight: bold;
+  font-size: 6rem;
+  text-align: center;
+  padding-top: 10px;
+}
+form {
+  margin: 10px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form__input {
+  background-color: transparent;
+  border: 1px solid black;
+  height: 35px;
+  margin-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-top: 5px;
+  font-size: 1.1rem;
+}
+.form__input::placeholder {
+  font-size: 1.1rem;
+  color: black;
+}
+.form__input:focus {
+  outline: none;
+}
+.form__input--wrong-input {
+  animation: shake 0.5s;
+  box-shadow: 0 0 0.6rem #EA4335;
+}
+@keyframes shake {
+  25% {
+    transform: translate(4px);
+  }
+
+  50% {
+    transform: translate(-4px);
+  }
+
+  75% {
+    transform: translate(4px);
+  }
+}
+.form__submit {
+  background-color: black;
+  color: #a9998a;
+  font-family: 'Tangerine', cursive;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  height: 35px;
+  border-radius: 4px;
+  padding: 0 10px;
+}
+.form__submit:hover {
+  background-color: transparent;
+  color: black;
+  outline: 1px solid black;
+}
+.form__score-label {
+  font-size: 2rem;
+  margin-left: 2.5rem;
+}
+.map-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 163px);
+}
+
+#map {
+  height: 95%;
+  width: 85%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  min-width: 300px;
+  transform: translateY(11px);
+}
