@@ -1,6 +1,6 @@
 import '../assets/index.css';
 import { Map } from './Map';
-import { checkAnswer } from '../hooks/useSubmitBtn';
+import { attachClickHandler } from '../hooks/useSubmitBtn';
 
 const map = new Map();
-checkAnswer(map);
+attachClickHandler(map);

@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  color: #000;
   background-color: #a9998a;
   background-image: url("old_paper.07c25a29.jpg");
   background-position: center;
@@ -15,12 +16,14 @@ body {
 
 .title {
   text-align: center;
+  color: #000;
   padding-top: 10px;
   font-size: 6rem;
   font-weight: bold;
 }
 
 form {
+  color: #000;
   justify-content: center;
   align-items: center;
   margin: 10px 0 0;
@@ -38,6 +41,26 @@ form {
 }
 
 .form__input::placeholder {
+  color: #000;
+  font-size: 1.1rem;
+}
+
+::-webkit-input-placeholder {
+  color: #000;
+  font-size: 1.1rem;
+}
+
+::placeholder {
+  color: #000;
+  font-size: 1.1rem;
+}
+
+::-ms-placeholder {
+  color: #000;
+  font-size: 1.1rem;
+}
+
+::placeholder {
   color: #000;
   font-size: 1.1rem;
 }

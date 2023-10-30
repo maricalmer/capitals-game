@@ -575,18 +575,21 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"h7u1C":[function(require,module,exports) {
-var _indexCss = require("../assets/index.css");
-var _map = require("./Map");
-var _useSubmitBtn = require("../hooks/useSubmitBtn");
-const map = new (0, _map.Map)();
-(0, _useSubmitBtn.checkAnswer)(map);
+"use strict";
+require("b93c770824e0f9f");
+var _Map = require("295a93b0bd1dba38");
+var _useSubmitBtn = require("e5f0c520978c5304");
+const map = new _Map.Map();
+(0, _useSubmitBtn.attachClickHandler)(map);
 
-},{"../assets/index.css":"9lDpJ","./Map":"5vXJ1","../hooks/useSubmitBtn":"irbwx"}],"9lDpJ":[function() {},{}],"5vXJ1":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Map", ()=>Map);
-var _map = require("../utils/map");
-var _marker = require("./Marker");
+},{"b93c770824e0f9f":"9lDpJ","295a93b0bd1dba38":"5vXJ1","e5f0c520978c5304":"irbwx"}],"9lDpJ":[function() {},{}],"5vXJ1":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Map = void 0;
+var _map = require("a2248c41aee8ff6");
+var _Marker = require("36dc08f9399da260");
 class Map {
     constructor(){
         this.googleMap = new google.maps.Map(document.getElementById("map"), {
@@ -601,9 +604,9 @@ class Map {
             streetViewControl: false,
             keyboardShortcuts: false,
             gestureHandling: "cooperative",
-            styles: (0, _map.mapStyling)
+            styles: _map.mapStyling
         });
-        this.marker = new (0, _marker.Marker)(this);
+        this.marker = new _Marker.Marker(this);
     }
     resetMapView() {
         this.googleMap.setCenter({
@@ -613,12 +616,15 @@ class Map {
         this.googleMap.setZoom(2.2);
     }
 }
+exports.Map = Map;
 
-},{"../utils/map":"7jk0d","./Marker":"lu0fH","@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"7jk0d":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "mapStyling", ()=>mapStyling);
-const mapStyling = [
+},{"a2248c41aee8ff6":"7jk0d","36dc08f9399da260":"lu0fH"}],"7jk0d":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.mapStyling = void 0;
+const mapStyling = exports.mapStyling = [
     {
         "elementType": "geometry",
         "stylers": [
@@ -705,41 +711,13 @@ const mapStyling = [
     }
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"jUH9C":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
 },{}],"lu0fH":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Marker", ()=>Marker);
-var _randomCapital = require("../utils/randomCapital");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Marker = void 0;
+var _randomCapital = require("d86b50d5bcd9263b");
 class Marker {
     constructor(map){
         this.cityData = (0, _randomCapital.pickRandomCapital)();
@@ -771,28 +749,34 @@ class Marker {
         });
     }
 }
+exports.Marker = Marker;
 
-},{"../utils/randomCapital":"fHDMH","@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"fHDMH":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "pickRandomCapital", ()=>pickRandomCapital);
-var _capitals = require("../utils/capitals");
+},{"d86b50d5bcd9263b":"fHDMH"}],"fHDMH":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.pickRandomCapital = void 0;
+var _capitals = require("b5924909a1ec1fbb");
 const pickRandomCapital = ()=>{
-    const randomIndex = Math.floor(Math.random() * 251);
+    const randomIndex = Math.floor(Math.random() * 252);
     const capitalData = {
-        country: (0, _capitals.countriesData)[randomIndex][0],
-        name: (0, _capitals.countriesData)[randomIndex][1],
-        lat: (0, _capitals.countriesData)[randomIndex][2],
-        lng: (0, _capitals.countriesData)[randomIndex][3]
+        country: _capitals.countriesData[randomIndex][0],
+        name: _capitals.countriesData[randomIndex][1],
+        lat: _capitals.countriesData[randomIndex][2],
+        lng: _capitals.countriesData[randomIndex][3]
     };
     return capitalData;
 };
+exports.pickRandomCapital = pickRandomCapital;
 
-},{"../utils/capitals":"lyq42","@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"lyq42":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "countriesData", ()=>countriesData);
-const countriesData = [
+},{"b5924909a1ec1fbb":"lyq42"}],"lyq42":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.countriesData = void 0;
+const countriesData = exports.countriesData = [
     [
         "United Arab Emirates",
         "Abu Dhabi",
@@ -2307,40 +2291,50 @@ const countriesData = [
     ]
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"irbwx":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "checkAnswer", ()=>checkAnswer);
-var _map = require("../src/Map");
-var _useConfetti = require("../hooks/useConfetti");
-var _useScore = require("../hooks/useScore");
+},{}],"irbwx":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.handleButtonClick = exports.attachClickHandler = void 0;
+var _Map = require("79613b597a30cbfc");
+var _useConfetti = require("3e219a0ca29aad82");
+var _useScore = require("aebfbc112120322b");
 const reloadWithNewMap = ()=>{
-    const map = new (0, _map.Map)();
-    checkAnswer(map);
+    const map = new _Map.Map();
+    attachClickHandler(map);
 };
-const checkAnswer = (map)=>{
+const handleButtonClick = (event, map)=>{
+    event.preventDefault();
+    const answer = map.marker.cityData["name"].toLowerCase();
+    let inputField = document.querySelector(".form__input");
+    if (inputField?.value.toLowerCase() === answer) {
+        (0, _useScore.updateScore)();
+        inputField.value = "";
+        inputField.classList.remove("form__input--wrong-input");
+        (0, _useConfetti.throwConfettis)();
+        reloadWithNewMap();
+    } else inputField?.classList.add("form__input--wrong-input");
+};
+exports.handleButtonClick = handleButtonClick;
+const attachClickHandler = (map)=>{
     const button = document.querySelector(".form__submit");
-    button?.addEventListener("click", function myCallback(event) {
-        event.preventDefault();
-        const answer = map.marker.cityData["name"].toLowerCase();
-        let inputField = document.querySelector(".form__input");
-        if (inputField?.value.toLowerCase() === answer) {
-            (0, _useScore.updateScore)();
-            inputField.value = "";
-            inputField.classList.remove("form__input--wrong-input");
-            (0, _useConfetti.throwConfettis)();
-            reloadWithNewMap();
-            this.removeEventListener("click", myCallback);
-        } else inputField?.classList.add("form__input--wrong-input");
-    });
+    button?.addEventListener("click", (event)=>handleButtonClick(event, map));
 };
+exports.attachClickHandler = attachClickHandler;
 
-},{"../src/Map":"5vXJ1","../hooks/useConfetti":"casih","@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C","../hooks/useScore":"hcbfl"}],"casih":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "throwConfettis", ()=>throwConfettis);
-var _jsConfetti = require("js-confetti");
-var _jsConfettiDefault = parcelHelpers.interopDefault(_jsConfetti);
+},{"79613b597a30cbfc":"5vXJ1","3e219a0ca29aad82":"casih","aebfbc112120322b":"hcbfl"}],"casih":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.throwConfettis = void 0;
+var _jsConfetti = _interopRequireDefault(require("1373ea4b687d2b0b"));
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
 const throwConfettis = ()=>{
     const colors = [
         "#B4436C",
@@ -2355,15 +2349,16 @@ const throwConfettis = ()=>{
         "#1E3231"
     ];
     const randomColor = colors[colors.length * Math.random() | 0];
-    const jsConfetti = new (0, _jsConfettiDefault.default)();
+    const jsConfetti = new _jsConfetti.default();
     jsConfetti.addConfetti({
         confettiColors: [
             randomColor
         ]
     });
 };
+exports.throwConfettis = throwConfettis;
 
-},{"js-confetti":"gZbVi","@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"gZbVi":[function(require,module,exports) {
+},{"1373ea4b687d2b0b":"gZbVi"}],"gZbVi":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function _classCallCheck(instance, Constructor) {
@@ -2714,19 +2709,56 @@ var JSConfetti = /*#__PURE__*/ function() {
 }();
 exports.default = JSConfetti;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"hcbfl":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "updateScore", ()=>updateScore);
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}],"jUH9C":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"hcbfl":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.updateScore = exports.getScoreElement = void 0;
+const getScoreElement = ()=>{
+    return document.querySelector(".form__score-value");
+};
+exports.getScoreElement = getScoreElement;
 const updateScore = ()=>{
-    let userScore = document.querySelector(".form__score-value");
+    const userScore = getScoreElement();
     if (userScore) {
         let score = parseInt(userScore.innerHTML);
         score++;
         userScore.innerHTML = score.toString();
     }
 };
+exports.updateScore = updateScore;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jUH9C"}]},["fXfvm","h7u1C"], "h7u1C", "parcelRequire94c2")
+},{}]},["fXfvm","h7u1C"], "h7u1C", "parcelRequire94c2")
 
 //# sourceMappingURL=index.b71e74eb.js.map
