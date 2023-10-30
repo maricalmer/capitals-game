@@ -615,6 +615,9 @@ class Map {
         });
         this.googleMap.setZoom(2.2);
     }
+    getGoogleMapObject() {
+        return this.googleMap;
+    }
 }
 exports.Map = Map;
 
@@ -722,7 +725,7 @@ class Marker {
     constructor(map){
         this.cityData = (0, _randomCapital.pickRandomCapital)();
         this.googleMarker = new google.maps.Marker({
-            map: map.googleMap,
+            map: map.getGoogleMapObject(),
             position: {
                 lat: this.cityData["lat"],
                 lng: this.cityData["lng"]

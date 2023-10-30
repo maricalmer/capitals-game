@@ -2,7 +2,7 @@ import { mapStyling } from '../utils/map';
 import { Marker } from './Marker';
 
 export class Map {
-  public googleMap: google.maps.Map;
+  private googleMap: google.maps.Map;
   public marker: Marker;
   constructor() {
     this.googleMap = new google.maps.Map(document.getElementById('map') as HTMLElement, {
@@ -25,5 +25,9 @@ export class Map {
   resetMapView(): void {
     this.googleMap.setCenter({lat: 20, lng: 20});
     this.googleMap.setZoom(2.2);
+  }
+
+  getGoogleMapObject(): google.maps.Map {
+    return this.googleMap;
   }
 }
