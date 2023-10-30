@@ -2,7 +2,7 @@
 
 ## Static website
 
-Website developed with HTML, CSS and Typescript. Assets are bundled with Parcel. Application is run on Netlify. Map is pulled from Google Maps API
+Website developed with HTML, CSS and Typescript. Assets are bundled with Parcel. Application is run on Netlify. Map is pulled from Google Maps API. Tested via Jest.
 
 ![HTML](https://img.shields.io/badge/HTML-5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-3-264DE4?style=for-the-badge&logo=css3&logoColor=white)
@@ -11,6 +11,7 @@ Website developed with HTML, CSS and Typescript. Assets are bundled with Parcel.
 ## JS Packages (non exhaustive)
 
 [![js-confetti](https://img.shields.io/badge/js--confetti-0.11.0-yellow.svg)](https://classic.yarnpkg.com/en/package/js-confetti)
+[![jest](https://img.shields.io/badge/jest-29.7.0-yellow.svg)](https://classic.yarnpkg.com/en/package/jest)
 
 ## APIs
 
