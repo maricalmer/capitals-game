@@ -7,7 +7,7 @@ export class Marker {
   constructor(map: Map) {
     this.cityData = pickRandomCapital();
     this.googleMarker = new google.maps.Marker({
-      map: map.getGoogleMapObject(),
+      map: map.googleMap,
       position: {lat: this.cityData["lat"], lng: this.cityData["lng"]},
       animation: google.maps.Animation.DROP
     });
